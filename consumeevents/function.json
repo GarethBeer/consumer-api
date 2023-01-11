@@ -1,19 +1,14 @@
 {
   "bindings": [
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
+      "type": "eventHubTrigger",
+      "name": "eventHubMessages",
       "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
+      "eventHubName": "events",
+      "connection": "event_hub",
+      "cardinality": "many",
+      "consumerGroup": "$Default",
+      "dataType": ""
     }
   ],
   "scriptFile": "../dist/consumeevents/index.js"
